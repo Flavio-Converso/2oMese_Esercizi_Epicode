@@ -72,7 +72,7 @@ a {
 }
 .fade-inImg {
   opacity: 0;
-  animation: fadeInAnimationImg 1s ease-in forwards;
+  animation: fadeInAnimationImg 1.5s ease-in forwards;
   position: relative;
 }
 
