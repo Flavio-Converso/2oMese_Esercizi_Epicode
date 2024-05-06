@@ -47,11 +47,12 @@ class Pet {
 
 const renderList = function () {
   petList.innerHTML = "";
-  pets.forEach((pet) => {
+  for (let i = 0; i < pets.length; i++) {
+    const pet = pets[i];
     const newLi = document.createElement("li");
     newLi.innerText = `Nome: ${pet.petName}, proprietario: ${pet.ownerName}, specie: ${pet.species}, razza: ${pet.breed}`;
     petList.appendChild(newLi);
-  });
+  }
 };
 
 addButton.onclick = function () {
