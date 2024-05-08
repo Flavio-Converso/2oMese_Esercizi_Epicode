@@ -45,7 +45,7 @@ generateInnerCards = (arrayofBooks) => {
           <img src="${element.img}" class="card-img-top h-75" alt="${element.title}">
           <div class="card-body">
             <h5 class="card-title">${element.title}</h5>
-            <p class="card-text">${element.price}</p>
+            <p class="card-text mb-4">${element.price}</p>
             <a href="#" class="btn btn-primary discard position-absolute bottom-0 start-0 ms-2 mb-1">Scarta</a>
             <a href="#" class="btn btn-primary buyNow position-absolute bottom-0 end-0 me-2 mb-1">Compra ora</a>
           </div>
@@ -75,6 +75,7 @@ generateInnerCards = (arrayofBooks) => {
       clonedCardBody.appendChild(imgCard);
       imgCard.style.width = "150px";
       addToCart(clonedCardBody);
+      localStorage.setItem("cart", clonedCardBody.outerHTML);
     });
   });
 
@@ -84,5 +85,16 @@ generateInnerCards = (arrayofBooks) => {
     item.className = "list-group-item mt-3 ms-3";
     item.appendChild(cardBody);
     cart.appendChild(item);
+
+    const removeButtonfromCart = document.createElement("button");
+    removeButtonfromCart.className = "btn btn-danger remove";
+    removeButtonfromCart.innerText = "Rimuovi";
+    removeButtonfromCart.style.marginTop = "10px";
+    item.appendChild(removeButtonfromCart);
+    removeButtonfromCart.addEventListener("click", (event) => {
+      event.preventDefault();
+      item.remove();
+      localStorage.removeItem("cart");
+    });
   }
 };
