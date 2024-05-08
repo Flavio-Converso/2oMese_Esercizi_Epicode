@@ -1,0 +1,13 @@
+.card {
+    height: 400px;
+    /* Imposta l'altezza desiderata */
+    width: 300px;
+    /* Imposta la larghezza desiderata */
+}
+
+.card-img-top {
+    height: 200px;
+    /* Imposta l'altezza desiderata per l'immagine */
+    object-fit: cover;
+    /* Fa in modo che l'immagine copra l'intero spazio disponibile */
+}
